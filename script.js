@@ -134,7 +134,7 @@ const pfData = [
     cat: "IoT Project",
     title: "Smart Building & Parking System",
     emoji: "🌐",
-    desc: "Project miniatur smart building berbasis IoT yang digunakan untuk simulasi monitoring parkir dan kontrol perangkat otomatis menggunakan ESP32 dan sensor.",
+    desc: "I built an IoT smart-building model that simulates parking monitoring and automated device control with an ESP32 and sensors.",
     tags: ["ESP 32", "Arduino Ide", "DHT 22", "RFID"],
     year: "2025",
     type: "IoT",
@@ -147,10 +147,10 @@ const pfData = [
     cat: "Web UI/UX Design",
     title: "Web Film & Series",
     emoji: "🎨",
-    desc: "Platform informasi film dan series Indonesia 2025-2026 dengan desain modern dan responsif",
+    desc: "I designed a modern, responsive platform featuring Indonesian films and series from 2025–2026.",
     tags: ["Figma", "CSS", "VS Code", "HTML"],
     year: "2025",
-    type: "Design Web",
+    type: "Web Design",
     image: "foto/web.png",
     liveLink: "https://webfilm-gules.vercel.app/index.html",
     githubLink: "https://github.com/OKANSANDIKURNIAWAN/okn-webpp.git",
@@ -159,7 +159,7 @@ const pfData = [
     cat: "Cisco Certified Course",
     title: "IT Essential (Cisco)",
     emoji: "📱",
-    desc: "Sertifikasi dan pelatihan mendalam mengenai fondasi IT, perakitan hardware, dan dasar-dasar jaringan komputer dari Cisco Networking Academy.",
+    desc: "I completed Cisco Networking Academy training in IT fundamentals, computer hardware assembly, and networking basics.",
     tags: ["Cisco", "Networking"],
     year: "2023",
     type: "Networking",
@@ -172,10 +172,10 @@ const pfData = [
     cat: "Math Competition",
     title: "Math City Map (MCM)",
     emoji: "🛒",
-    desc: "Kompetisi matematika berbasis lokasi yang menggabungkan kemampuan analisis matematika dengan penjelajahan lapangan. Lomba ini diadakan di Taman Raden Saleh, sekaligus merayakan hari Pendidikan Nasional.",
+    desc: "I competed in a location-based mathematics challenge that combined analytical problem-solving with field exploration. The event took place at Taman Raden Saleh to celebrate National Education Day.",
     tags: [
       "MCM App",
-      "Probllem Solver",
+      "Problem Solving",
       "Team Strategy",
       "Scientific Calculator",
     ],
@@ -186,17 +186,17 @@ const pfData = [
     githubLink: null,
   },
   {
-    cat: "Educaation Program",
+    cat: "Education Program",
     title: "Solve Education",
     emoji: "📊",
-    desc: "Program pendidikan digital yang fokus pada pengembangan skill Bahasa Inggrismelalui platform game-based learning. Saya mendapatkan penghargaan sebagai siswa yang aktif belajar secara konsisten se-Kota Semarang. Selain itu saya juga pernah mendapatkan Juara 1 kategori kelas 8 SMP",
+    desc: "I used a digital, game-based learning platform to improve my English. I earned recognition as one of Semarang's most consistent learners and won first place in the Grade 8 category.",
     tags: [
       "Learning Participation",
       "Skill Development",
       "Solve Education Platform",
     ],
     year: "2024",
-    type: "Certficate",
+    type: "Certificate",
     image: "foto/solve education.jpeg",
     liveLink: null,
     githubLink: null,
@@ -205,8 +205,8 @@ const pfData = [
     cat: "Coding Workshop",
     title: "Hour of Code Minecraft",
     emoji: "🏫",
-    desc: "Program pendidikan digital yang fokus pada pengembangan skill Pemograman melalui platform Hour of Code. ",
-    tags: ["Algoritma"],
+    desc: "I completed the Hour of Code Minecraft programming workshop and practiced building algorithms through interactive coding activities.",
+    tags: ["Programming", "Algorithms"],
     year: "2026",
     type: "Certificate",
     image: "foto/minecraft.jpg",
@@ -217,8 +217,8 @@ const pfData = [
     cat: "Coding Workshop",
     title: "Hour of Code Music",
     emoji: "🏫",
-    desc: "Program pendidikan digital yang fokus pada pengembangan skill Pemograman melalui platform Hour of Code. ",
-    tags: ["Algoritma"],
+    desc: "I completed the Hour of Code Music programming workshop and explored coding through interactive music activities.",
+    tags: ["Programming", "Music"],
     year: "2026",
     type: "Certificate",
     image: "foto/music.jpg",
@@ -227,13 +227,13 @@ const pfData = [
   },
 
   {
-    cat: "Hackathon DIGIForward",
-    title: "CTI Group x GENed",
+    cat: "CTI Group x GENed",
+    title: "Hackathon DIGIForward",
     emoji: "🏫",
-    desc: "Merancang solusi inovatif berbasis masalah nyata menggunakan pendekatan Design Thinking di tahap kualifikasi daring. Serta membangun prototipe web interaktif dengan mengintegrasikan alur kerja AI-assisted web development.",
+    desc: "I designed an innovative solution to a real-world problem using Design Thinking during the online qualifier. I also built an interactive web prototype using an AI-assisted development workflow.",
     tags: ["Antigravity", "Canva", "Opencode"],
     year: "2024",
-    type: "Picture",
+    type: "Photo",
     image: "foto/Hackathon.JPG",
     CanvaLink: "https://canva.link/j2bqzrpxll007wt",
     githubLink: null,
@@ -300,14 +300,14 @@ function openModal(idx) {
   document.getElementById("mTitle").textContent = d.title;
   document.getElementById("mDesc").textContent = d.desc;
   document.getElementById("mInfo").innerHTML =
-    `<div><p class="mi-lbl">Tahun</p><p class="mi-val">${d.year}</p></div><div><p class="mi-lbl">Tipe</p><p class="mi-val">${d.type}</p></div><div><p class="mi-lbl">Status</p><p class="mi-val">Selesai</p></div><div><p class="mi-lbl">Platform</p><p class="mi-val">Web / Desktop</p></div>`;
+    `<div><p class="mi-lbl">Year</p><p class="mi-val">${d.year}</p></div><div><p class="mi-lbl">Type</p><p class="mi-val">${d.type}</p></div><div><p class="mi-lbl">Status</p><p class="mi-val">Completed</p></div><div><p class="mi-lbl">Platform</p><p class="mi-val">Web / Desktop</p></div>`;
   document.getElementById("mTags").innerHTML = d.tags
     .map((t) => `<span class="ptag">${t}</span>`)
     .join("");
 
   let linksHTML = "";
   if (d.liveLink) {
-    linksHTML += `<a href="${d.liveLink}" class="ml pri" target="_blank">🔗 Lihat Live</a>`;
+    linksHTML += `<a href="${d.liveLink}" class="ml pri" target="_blank" rel="noopener noreferrer">🔗 View Project</a>`;
   }
   if (d.githubLink) {
     linksHTML += `<a href="${d.githubLink}" class="ml sec" target="_blank">⊞ GitHub</a>`;
@@ -333,7 +333,7 @@ const skillsData = [
   { label: "HTML", pct: 80 },
   { label: "CSS", pct: 60 },
   { label: "IoT", pct: 88 },
-  { label: "Jaringan", pct: 58 },
+  { label: "Networking", pct: 58 },
   { label: "UI/UX", pct: 69 },
 ];
 
@@ -394,7 +394,7 @@ const orbitSkills = [
     cat: "Hard Skill",
     r: 80,
     angle: 0,
-    desc: "Merancang tampilan antarmuka yang modern dan mudah digunakan melalui proses wireframing, perencanaan layout, dan eksplorasi desain visual.",
+    desc: "I design modern, easy-to-use interfaces through wireframing, layout planning, and visual exploration.",
   },
   {
     name: "Web Development",
@@ -402,7 +402,7 @@ const orbitSkills = [
     cat: "Hard Skill",
     r: 80,
     angle: 144,
-    desc: "Membangun website responsif menggunakan HTML, CSS, dan JavaScript dengan fokus pada tampilan modern, fungsionalitas, dan interaksi pengguna.",
+    desc: "I build responsive websites with HTML, CSS, and JavaScript, focusing on modern visuals, functionality, and user interaction.",
   },
   {
     name: "Internet of Things (IoT)",
@@ -410,7 +410,7 @@ const orbitSkills = [
     cat: "Hard Skill",
     r: 80,
     angle: 288,
-    desc: "Mengembangkan sistem IoT sederhana menggunakan sensor dan perangkat monitoring untuk otomatisasi, pengumpulan data, dan kontrol sistem secara real-time.",
+    desc: "I develop simple IoT systems with sensors and monitoring devices for automation, data collection, and real-time control.",
   },
   {
     name: "Teamwork",
@@ -418,7 +418,7 @@ const orbitSkills = [
     cat: "Soft Skill",
     r: 140,
     angle: 30,
-    desc: "Mampu bekerja sama dengan baik dalam tim melalui komunikasi, kolaborasi, dan pembagian tugas yang efektif.",
+    desc: "I collaborate effectively with teammates through clear communication and thoughtful task sharing.",
   },
   {
     name: "Team Discussion",
@@ -426,7 +426,7 @@ const orbitSkills = [
     cat: "Soft Skill",
     r: 140,
     angle: 102,
-    desc: " Mampu menyampaikan ide dan informasi dengan jelas serta menjaga komunikasi yang baik dalam diskusi maupun kerja kelompok.",
+    desc: "I communicate ideas clearly and contribute constructively to discussions and group projects.",
   },
   {
     name: "Git & GitHub",
@@ -434,7 +434,7 @@ const orbitSkills = [
     cat: "Hard Skill",
     r: 140,
     angle: 174,
-    desc: "Version control, branching, dan kolaborasi tim via repository.",
+    desc: "I use version control, branching, and shared repositories to collaborate on projects.",
   },
 ];
 
