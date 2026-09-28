@@ -225,6 +225,19 @@ const pfData = [
     liveLink: null,
     githubLink: null,
   },
+
+  {
+    cat: "Hackathon DIGIForward",
+    title: "CTI Group x GENed",
+    emoji: "🏫",
+    desc: "Merancang solusi inovatif berbasis masalah nyata menggunakan pendekatan Design Thinking di tahap kualifikasi daring. Serta membangun prototipe web interaktif dengan mengintegrasikan alur kerja AI-assisted web development.",
+    tags: ["Antigravity", "Canva", "Opencode"],
+    year: "2024",
+    type: "Picture",
+    image: "foto/Hackathon.JPG",
+    CanvaLink: "https://canva.link/j2bqzrpxll007wt",
+    githubLink: null,
+  },
 ];
 const total = pfData.length;
 let pfCur = 0;
@@ -298,6 +311,9 @@ function openModal(idx) {
   }
   if (d.githubLink) {
     linksHTML += `<a href="${d.githubLink}" class="ml sec" target="_blank">⊞ GitHub</a>`;
+  }
+  if (d.CanvaLink) {
+    linksHTML += `<a href="${d.CanvaLink}" class="ml sec" target="_blank" rel="noopener noreferrer">🎨 Canva</a>`;
   }
   document.getElementById("mLinks").innerHTML = linksHTML;
 
