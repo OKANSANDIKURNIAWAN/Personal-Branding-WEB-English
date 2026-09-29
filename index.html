@@ -1,0 +1,1269 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Okan Sandi Kurniawan — Web Developer</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Archivo:wght@100;200;300;400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="cur" id="cur"></div>
+  <div class="cuf" id="cuf"></div>
+
+  <!-- ══ TOP NAVBAR ══ -->
+  <header class="topnav">
+    <a href="#home" class="tn-logo">okn.</a>
+    <nav>
+      <ul class="tn-links">
+        <li>
+          <a href="#home" class="tn-link active" data-sec="home">Home</a>
+        </li>
+        <li>
+          <a href="#about" class="tn-link" data-sec="about">About Me</a>
+        </li>
+        <li>
+          <a href="#skills" class="tn-link" data-sec="skills">Skills</a>
+        </li>
+        <li>
+          <a href="#portfolio" class="tn-link" data-sec="portfolio">Portfolio</a>
+        </li>
+        <li><a href="#cv" class="tn-link" data-sec="cv">CV</a></li>
+      </ul>
+    </nav>
+    <button class="tn-theme" id="themeBtn" title="Toggle Theme">◑</button>
+  </header>
+
+  <!-- ══ HERO ══ -->
+  <section id="home">
+    <div class="hero-grid"></div>
+    <div class="hero-left">
+      <p class="hero-eyebrow">01 — Home</p>
+      <h1 class="hero-name">
+        <span>Okan</span>
+        <span>Sandi Kurniawan</span>
+      </h1>
+      <p class="hero-nick"><span>"Okan"</span></p>
+      <p class="hero-desc">
+        Hi, I am Okan Sandi Kurniawan. I am a student majoring in Network and
+        Application Information Systems (SIJA) at SMK Negeri 7 Semarang, and I
+        have developed a strong interest in web development, UI/UX design, and
+        the Internet of Things.
+      </p>
+      <div class="hero-tags">
+        <span class="htag">Creative Web Developer</span>
+        <span class="htag">UI/UX</span>
+        <span class="htag">IoT</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-bg">
+          <div class="photo-frame">
+            <!-- Ganti dengan <img src="foto.jpg" alt="Foto"> -->
+            <span class="photo-ph"> <img src="foto/CV OKAN SANDI K.png" alt="Profile Photo"></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span class="scroll-lbl">Scroll</span>
+    </div>
+    <div class="hero-num">25</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══ ABOUT ME ══ -->
+  <section id="about">
+    <p class="sec-label">// 02</p>
+    <h2 class="sec-title">About Me</h2>
+
+    <div class="acc-tabs">
+      <button class="acc-tab active" onclick="switchPanel('profil', this)">
+        Profile
+      </button>
+      <button class="acc-tab" onclick="switchPanel('pendidikan', this)">
+        Education
+      </button>
+      <button class="acc-tab" onclick="switchPanel('hobi', this)">
+        Hobbies &amp; Interests
+      </button>
+      <button class="acc-tab" onclick="switchPanel('karier', this)">
+        Career
+      </button>
+      <button class="acc-tab" onclick="switchPanel('skills-about', this)">
+        Skills
+      </button>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="acc-panel active" id="panel-profil">
+      <div class="profil-grid">
+        <div class="reveal">
+          <div class="profil-photo">
+            <img src="foto/FOTO 1.jpg" alt="Profile Photo">
+          </div>
+          <div class="profil-stats">
+            <div class="pstat">
+              <span class="pstat-n">3+</span><span class="pstat-l">Projects</span>
+            </div>
+            <div class="pstat">
+              <span class="pstat-n">2</span><span class="pstat-l">Years</span>
+            </div>
+            <div class="pstat">
+              <span class="pstat-n">5</span><span class="pstat-l">Skills</span>
+            </div>
+            <div class="pstat">
+              <span class="pstat-n">∞</span><span class="pstat-l">Drive</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s">
+          <p class="profil-bio">
+            I am Okan Sandi Kurniawan, commonly called Okan. I was born in Semarang on October 3, 2008.
+            As a practicing Muslim and an active student, I am the second child in a family of two siblings.
+            I currently live in Semarang, Indonesia.
+          </p>
+          <div style="margin-top: 24px">
+            <p class="info-title">Family Background</p>
+            <p class="profil-bio">
+              I come from a modest family and I am the second child of two siblings. I have an older sister who is two
+              years older than I am.
+              <br><br>My mother is a housewife, and my father works as a private employee. My family has taught me the
+              value of responsibility, humility, and simplicity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PENDIDIKAN — Animated Timeline Canvas -->
+    <div class="acc-panel" id="panel-pendidikan">
+      <style>
+        .ew {
+          background: transparent;
+          border-radius: 0;
+          padding: 20px 0;
+          position: relative;
+        }
+
+        .ew-hd {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 30px;
+        }
+
+        .ew-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          background: #1a1a1a;
+          border: 0.5px solid #2a2a2a;
+          border-radius: 20px;
+          padding: 6px 14px;
+          font-family: 'DM Mono', monospace;
+          font-size: 11px;
+          letter-spacing: 1px;
+          color: #888;
+        }
+
+        .ew-dot-red {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #c0392b;
+          flex-shrink: 0;
+        }
+
+        .ew-title {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 24px;
+          font-weight: 600;
+          color: #fff;
+          letter-spacing: -0.5px;
+        }
+
+        .ew-scene {
+          position: relative;
+          width: 100%;
+          height: 400px;
+        }
+
+        #ewCanvas {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .ew-label {
+          position: absolute;
+          opacity: 0;
+          transform: translateY(8px);
+          transition: opacity .45s ease, transform .45s ease;
+          width: 155px;
+        }
+
+        .ew-label.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .ew-label-date {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-family: 'DM Mono', monospace;
+          font-size: 10px;
+          color: #666;
+          margin-bottom: 6px;
+          letter-spacing: .5px;
+        }
+
+        .ew-label-name {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 17px;
+          font-weight: 600;
+          color: #fff;
+          line-height: 1.25;
+          margin-bottom: 3px;
+        }
+
+        .ew-label-sub {
+          font-family: 'Archivo', sans-serif;
+          font-size: 11px;
+          color: #666;
+          margin-bottom: 5px;
+        }
+
+        .ew-label-desc {
+          font-family: 'Archivo', sans-serif;
+          font-size: 11px;
+          color: #777;
+          line-height: 1.65;
+        }
+
+        .ew-active {
+          color: #c0392b !important;
+        }
+
+        .ew-replay {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+        }
+
+        .ew-replay button {
+          background: none;
+          border: 0.5px solid #2a2a2a;
+          border-radius: 20px;
+          color: #666;
+          font-family: 'DM Mono', monospace;
+          font-size: 10px;
+          letter-spacing: 1px;
+          padding: 6px 18px;
+          cursor: pointer;
+          transition: border-color .2s, color .2s;
+        }
+
+        .ew-replay button:hover {
+          border-color: #555;
+          color: #bbb;
+        }
+      </style>
+
+      <div class="ew">
+        <div class="ew-scene">
+          <canvas id="ewCanvas"></canvas>
+          <div class="ew-label" id="el0">
+            <div class="ew-label-date">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              2013 — 2015
+            </div>
+            <div class="ew-label-name">TK PGRI 24 Semarang</div>
+            <div class="ew-label-sub">Early development</div>
+            <div class="ew-label-desc">Focused on social growth and interpersonal communication from an early age.</div>
+          </div>
+          <div class="ew-label" id="el1">
+            <div class="ew-label-date">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              2015 — 2021
+            </div>
+            <div class="ew-label-name">SD Negeri Srondol Kulon 02 Semarang</div>
+            <div class="ew-label-sub">Graduated with satisfactory results</div>
+            <div class="ew-label-desc">A period of character building. I actively participated in science competition
+              activities.</div>
+          </div>
+          <div class="ew-label" id="el2">
+            <div class="ew-label-date">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              2021 — 2024
+            </div>
+            <div class="ew-label-name">SMP Negeri 27 Semarang</div>
+            <div class="ew-label-sub">● Graduated with top academic performance</div>
+            <div class="ew-label-desc">Ranked 1st for three semesters and actively participated in mathematics and
+              English competitions.</div>
+          </div>
+          <div class="ew-label" id="el3">
+            <div class="ew-label-date">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              2024 — Present
+            </div>
+            <div class="ew-label-name">SMK Negeri 7 Semarang</div>
+            <div class="ew-label-sub ew-active">● Active · SIJA</div>
+            <div class="ew-label-desc">Studying web programming, interface design, cybersecurity, and IoT.</div>
+          </div>
+        </div>
+        <div class="ew-replay"><button id="ewReplay">↺ Replay</button></div>
+      </div>
+
+      <script>
+        const cv = document.getElementById('ewCanvas');
+        const ctx = cv.getContext('2d');
+        let W, H, pts, lensArr, totalLen, dotPx;
+        const DOTS = [
+          { fx: 0.10, fy: 0.30 },
+          { fx: 0.36, fy: 0.42 },
+          { fx: 0.64, fy: 0.26 },
+          { fx: 0.88, fy: 0.18 },
+        ];
+        const LABELS = ['el0', 'el1', 'el2', 'el3'];
+        const shown = [false, false, false, false];
+        const GAP = 14;
+        const CONN = 68;
+        function ctrlPts(w, h) {
+          return [
+            { x: 0, y: h * 0.50 },
+            { x: w * 0.04, y: h * 0.40 },
+            { x: w * 0.08, y: h * 0.32 },
+            { x: w * 0.10, y: h * 0.30 },
+            { x: w * 0.14, y: h * 0.32 },
+            { x: w * 0.22, y: h * 0.40 },
+            { x: w * 0.30, y: h * 0.44 },
+            { x: w * 0.36, y: h * 0.42 },
+            { x: w * 0.42, y: h * 0.40 },
+            { x: w * 0.50, y: h * 0.34 },
+            { x: w * 0.58, y: h * 0.28 },
+            { x: w * 0.64, y: h * 0.26 },
+            { x: w * 0.70, y: h * 0.24 },
+            { x: w * 0.78, y: h * 0.20 },
+            { x: w * 0.88, y: h * 0.18 },
+            { x: w * 0.94, y: h * 0.16 },
+            { x: w, y: h * 0.14 },
+          ];
+        }
+        function spline(cp, steps) {
+          const r = [];
+          for (let i = 0; i < cp.length - 1; i++) {
+            const p0 = cp[Math.max(i - 1, 0)];
+            const p1 = cp[i];
+            const p2 = cp[i + 1];
+            const p3 = cp[Math.min(i + 2, cp.length - 1)];
+            for (let t = 0; t < steps; t++) {
+              const s = t / steps, s2 = s * s, s3 = s2 * s;
+              r.push({
+                x: .5 * ((2 * p1.x) + (-p0.x + p2.x) * s + (2 * p0.x - 5 * p1.x + 4 * p2.x - p3.x) * s2 + (-p0.x + 3 * p1.x - 3 * p2.x + p3.x) * s3),
+                y: .5 * ((2 * p1.y) + (-p0.y + p2.y) * s + (2 * p0.y - 5 * p1.y + 4 * p2.y - p3.y) * s2 + (-p0.y + 3 * p1.y - 3 * p2.y + p3.y) * s3),
+              });
+            }
+          }
+          r.push(cp[cp.length - 1]);
+          return r;
+        }
+        function makeLens(p) {
+          const l = [0]; let tot = 0;
+          for (let i = 1; i < p.length; i++) {
+            const dx = p[i].x - p[i - 1].x, dy = p[i].y - p[i - 1].y;
+            tot += Math.sqrt(dx * dx + dy * dy);
+            l.push(tot);
+          }
+          return { l, tot };
+        }
+        function nearestLen(fx, fy) {
+          const tx = fx * W, ty = fy * H;
+          let best = Infinity, bi = 0;
+          pts.forEach((p, i) => {
+            const d = (p.x - tx) ** 2 + (p.y - ty) ** 2;
+            if (d < best) { best = d; bi = i; }
+          });
+          return lensArr[bi];
+        }
+        function init() {
+          const wrap = cv.parentElement;
+          W = wrap.clientWidth;
+          H = wrap.clientHeight;
+          cv.width = W;
+          cv.height = H;
+          pts = spline(ctrlPts(W, H), 36);
+          const ml = makeLens(pts);
+          lensArr = ml.l;
+          totalLen = ml.tot;
+          dotPx = DOTS.map((d, di) => {
+            const x = d.fx * W;
+            const y = d.fy * H;
+            const thresh = nearestLen(d.fx, d.fy);
+            const labelTop = y + GAP + CONN;
+            const el = document.getElementById(LABELS[di]);
+            el.style.top = labelTop + 'px';
+            el.style.bottom = 'auto';
+            const labelW = 155;
+            let left = x - labelW / 2;
+            left = Math.max(0, Math.min(left, W - labelW));
+            el.style.left = left + 'px';
+            el.style.right = 'auto';
+            return { x, y, thresh };
+          });
+        }
+        function drawFrame(prog) {
+          ctx.clearRect(0, 0, W, H);
+          const target = prog * totalLen;
+          ctx.beginPath();
+          ctx.moveTo(pts[0].x, pts[0].y);
+          for (let i = 1; i < pts.length; i++) {
+            if (lensArr[i] > target) {
+              const fr = (target - lensArr[i - 1]) / (lensArr[i] - lensArr[i - 1]);
+              ctx.lineTo(
+                pts[i - 1].x + (pts[i].x - pts[i - 1].x) * fr,
+                pts[i - 1].y + (pts[i].y - pts[i - 1].y) * fr
+              );
+              break;
+            }
+            ctx.lineTo(pts[i].x, pts[i].y);
+          }
+          ctx.strokeStyle = 'rgba(160,158,150,.75)';
+          ctx.lineWidth = 1.8;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.stroke();
+          dotPx.forEach((d, di) => {
+            if (target < d.thresh) return;
+            ctx.beginPath();
+            ctx.moveTo(d.x, d.y + GAP);
+            ctx.lineTo(d.x, d.y + GAP + CONN);
+            ctx.strokeStyle = 'rgba(90,88,82,.5)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([3, 4]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.beginPath();
+            ctx.arc(d.x, d.y, 11, 0, Math.PI * 2);
+            ctx.fillStyle = '#111';
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(155,153,145,.8)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(d.x, d.y, 5, 0, Math.PI * 2);
+            ctx.fillStyle = di === DOTS.length - 1 ? 'rgba(192,57,43,.7)' : 'rgba(155,153,145,.55)';
+            ctx.fill();
+            if (!shown[di]) {
+              shown[di] = true;
+              document.getElementById(LABELS[di]).classList.add('show');
+            }
+          });
+        }
+        let raf, t0;
+        const DUR = 2600;
+        function animate(ts) {
+          if (!t0) t0 = ts;
+          const p = Math.min((ts - t0) / DUR, 1);
+          const e = p < .5 ? 2 * p * p : 1 - (-2 * p + 2) ** 2 / 2;
+          drawFrame(e);
+          if (p < 1) raf = requestAnimationFrame(animate);
+        }
+        function start() {
+          cancelAnimationFrame(raf);
+          t0 = null;
+          shown.fill(false);
+          LABELS.forEach(id => document.getElementById(id).classList.remove('show'));
+          init();
+          raf = requestAnimationFrame(animate);
+        }
+        document.getElementById('ewReplay').addEventListener('click', start);
+        let fired = false;
+        new IntersectionObserver(entries => {
+          if (entries[0].isIntersecting && !fired) { fired = true; start(); }
+        }, { threshold: 0.25 }).observe(cv);
+        window.addEventListener('resize', () => { if (fired) start(); });
+      </script>
+    </div>
+
+    <!-- HOBBIES -->
+    <div class="acc-panel" id="panel-hobi">
+      <div class="hobi-grid">
+        <div class="reveal">
+          <p class="info-title" style="margin-bottom: 16px">Hobbies</p>
+          <div class="hacc-item open">
+            <div class="hacc-hd" onclick="toggleHobi(this)">
+              <span class="hacc-title"><span class="hacc-icon">🖥️</span> Reading Books</span>
+              <span class="hacc-plus">+</span>
+            </div>
+            <div class="hacc-body" style="max-height: 150px">
+              <div class="hacc-inner">
+                I enjoy books about psychology, self-development, and human behavior. I like understanding
+                patterns of behavior, emotions, and how thinking shapes decisions in daily life.
+              </div>
+            </div>
+          </div>
+          <div class="hacc-item">
+            <div class="hacc-hd" onclick="toggleHobi(this)">
+              <span class="hacc-title"><span class="hacc-icon">🎨</span> Listening to Music</span>
+              <span class="hacc-plus">+</span>
+            </div>
+            <div class="hacc-body">
+              <div class="hacc-inner">
+                Music helps me maintain focus and the right mood while studying or working on projects. I enjoy
+                different genres that support creativity and improve my energy.
+              </div>
+            </div>
+          </div>
+          <div class="hacc-item">
+            <div class="hacc-hd" onclick="toggleHobi(this)">
+              <span class="hacc-title"><span class="hacc-icon">📸</span> Fashion Interest</span>
+              <span class="hacc-plus">+</span>
+            </div>
+            <div class="hacc-body">
+              <div class="hacc-inner">
+                I am interested in simple and clean fashion aesthetics. For me, style is not only about appearance,
+                but also about self-expression and confidence.
+              </div>
+            </div>
+          </div>
+          <div class="hacc-item">
+            <div class="hacc-hd" onclick="toggleHobi(this)">
+              <span class="hacc-title"><span class="hacc-icon">🎮</span> Exploring</span>
+              <span class="hacc-plus">+</span>
+            </div>
+            <div class="hacc-body">
+              <div class="hacc-inner">
+                Exploring new streets and environments on my motorbike helps me recharge and enjoy simple moments.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s">
+          <p class="info-title" style="margin-bottom: 16px">Interests</p>
+          <div class="hacc-item open">
+            <div class="hacc-hd" onclick="toggleHobi(this)">
+              <span class="hacc-title"><span class="hacc-icon">✦</span> Web Development &amp; UI/UX Design</span>
+              <span class="hacc-plus">+</span>
+            </div>
+            <div class="hacc-body" style="max-height: 150px">
+              <div class="hacc-inner">
+                My main interest lies in technology, especially the Internet of Things (IoT), web development,
+                and UI/UX design. I enjoy creating digital products that are functional, intuitive, and visually
+                engaging.
+              </div>
+            </div>
+          </div>
+          <div class="hacc-item">
+            <div class="hacc-hd" onclick="toggleHobi(this)">
+              <span class="hacc-title"><span class="hacc-icon">⚡</span> IoT</span>
+              <span class="hacc-plus">+</span>
+            </div>
+            <div class="hacc-body">
+              <div class="hacc-inner">
+                I am interested in developing IoT projects that can provide practical and impactful solutions for daily
+                life and the environment.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAREER -->
+    <div class="acc-panel" id="panel-karier">
+      <div class="karier-grid">
+        <div class="k-card reveal">
+          <div class="k-num">01</div>
+          <h3 class="k-title">Aspiring Web Developer</h3>
+          <p class="k-desc">
+            I want to become a web developer who can build modern websites with a strong user experience,
+            attractive visuals, and effective functionality. I have continued to improve my web development and UI/UX
+            skills to create meaningful digital solutions.
+          </p>
+        </div>
+        <div class="k-card reveal" style="transition-delay: 0.1s">
+          <div class="k-num">02</div>
+          <h3 class="k-title">Diponegoro University (UNDIP) — Informatics</h3>
+          <p class="k-desc">
+            In the future, I plan to continue my studies at Diponegoro University in the Informatics program to deepen
+            my understanding of technology and support my goal of becoming a professional web developer.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS — Orbital Skills -->
+    <div class="acc-panel" id="panel-skills-about">
+      <h3 class="sr-only" style="position: absolute; left: -9999px">
+        Skill orbit — click a tag to view skill details
+      </h3>
+
+      <div class="orbit-wrap">
+        <div class="orbit-scene" id="scene">
+          <div class="orbit-ring ring1"></div>
+          <div class="orbit-ring ring2"></div>
+          <div class="orbit-ring ring3"></div>
+          <div class="orbit-center">
+            <span class="orbit-center-num">6+</span>
+            <span class="orbit-center-lbl">My skills</span>
+          </div>
+          <div class="orbit-group" id="orbitGroup"></div>
+        </div>
+        <div class="info-panel" id="infoPanel">
+          <p class="info-cat" id="iCat">Click a skill tag</p>
+          <p class="info-title" id="iTitle">—</p>
+          <p class="info-pct" id="iPct"></p>
+          <div class="info-bar-bg">
+            <div class="info-bar-fill" id="iBar" style="width: 0%"></div>
+          </div>
+          <p class="info-desc" id="iDesc">
+            Select a skill to view its details.
+          </p>
+          <button class="pause-btn" id="pauseBtn">⏸ Pause</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══ SKILLS (Animated Cards) ══ -->
+  <section id="skills">
+    <p class="sec-label">// 03</p>
+    <div class="skills-wrapper">
+      <div class="skills-header">
+        <div class="skills-badge">
+          <span class="dot"></span>
+          My Skills
+        </div>
+        <h2 class="skills-title">Tools &amp; Skills</h2>
+      </div>
+
+      <style>
+        .pill-outer {
+          display: flex;
+          gap: 25px;
+          justify-content: center;
+          flex-wrap: nowrap;
+          margin-top: 40px;
+        }
+
+        .pill-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          cursor: pointer;
+          position: relative;
+        }
+
+        .pill-top-ghost {
+          width: 170px;
+          height: 85px;
+          border-radius: 85px 85px 0 0;
+          border: 1px solid #222;
+          border-bottom: none;
+          background: #111;
+          flex-shrink: 0;
+        }
+
+        .pill-body {
+          width: 170px;
+          height: 280px;
+          border-radius: 85px;
+          background: #141414;
+          border: 1px solid #222;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-end;
+          padding-bottom: 30px;
+          flex-shrink: 0;
+          margin-top: -85px;
+          transition: border-color .3s;
+        }
+
+        .pill-wrap:hover .pill-body {
+          border-color: #444;
+        }
+
+        .pill-fill {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: #f5f4f0;
+          height: 0;
+          transition: height 1.3s cubic-bezier(.16, 1, .3, 1);
+          border-radius: 0 0 85px 85px;
+        }
+
+        .pill-icon-wrap {
+          position: absolute;
+          top: -60px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background: #111;
+          border: 2px solid #2a2a2a;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 3;
+          transition: border-color .3s;
+        }
+
+        .pill-wrap:hover .pill-icon-wrap {
+          border-color: #f5f4f0;
+        }
+
+        .pill-icon-wrap i {
+          font-size: 42px;
+          color: #666;
+          transition: color .3s;
+          position: relative;
+          z-index: 1;
+        }
+
+        .pill-wrap:hover .pill-icon-wrap i {
+          color: #f5f4f0;
+        }
+
+        .pill-pct {
+          font-family: 'DM Mono', monospace;
+          font-size: 48px;
+          font-weight: 400;
+          color: #f5f4f0;
+          line-height: 1;
+          position: relative;
+          z-index: 2;
+          mix-blend-mode: difference;
+          opacity: 0;
+          transform: translateY(6px);
+          transition: opacity .4s .7s, transform .4s .7s;
+        }
+
+        .pill-name {
+          font-family: 'DM Mono', monospace;
+          font-size: 13px;
+          color: #f5f4f0;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          position: relative;
+          z-index: 2;
+          mix-blend-mode: difference;
+          margin-top: 8px;
+          opacity: 0;
+          transition: opacity .3s 1s;
+          text-align: center;
+          padding: 0 8px;
+        }
+
+        .pill-wrap.fired .pill-pct {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .pill-wrap.fired .pill-name {
+          opacity: 1;
+        }
+
+        .pill-tooltip {
+          position: absolute;
+          bottom: calc(100% + 12px);
+          left: 50%;
+          transform: translateX(-50%);
+          background: #1e1e1e;
+          border: 0.5px solid #333;
+          border-radius: 6px;
+          padding: 5px 10px;
+          font-family: 'DM Mono', monospace;
+          font-size: 10px;
+          letter-spacing: 1px;
+          color: #888;
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity .2s;
+          z-index: 10;
+        }
+
+        .pill-wrap:hover .pill-tooltip {
+          opacity: 1;
+        }
+      </style>
+
+      <div class="pill-outer">
+        <div class="pill-wrap" data-pct="80">
+          <div class="pill-tooltip">Click to replay</div>
+          <div class="pill-top-ghost"></div>
+          <div class="pill-body">
+            <div class="pill-icon-wrap"><i class="ti ti-code"></i></div>
+            <div class="pill-fill"></div>
+            <span class="pill-pct">80%</span>
+            <span class="pill-name">HTML</span>
+          </div>
+        </div>
+        <div class="pill-wrap" data-pct="60">
+          <div class="pill-tooltip">Click to replay</div>
+          <div class="pill-top-ghost"></div>
+          <div class="pill-body">
+            <div class="pill-icon-wrap"><i class="ti ti-bolt"></i></div>
+            <div class="pill-fill"></div>
+            <span class="pill-pct">60%</span>
+            <span class="pill-name">CSS</span>
+          </div>
+        </div>
+        <div class="pill-wrap" data-pct="88">
+          <div class="pill-tooltip">Click to replay</div>
+          <div class="pill-top-ghost"></div>
+          <div class="pill-body">
+            <div class="pill-icon-wrap"><i class="ti ti-vector-triangle"></i></div>
+            <div class="pill-fill"></div>
+            <span class="pill-pct">88%</span>
+            <span class="pill-name">IoT</span>
+          </div>
+        </div>
+        <div class="pill-wrap" data-pct="58">
+          <div class="pill-tooltip">Click to replay</div>
+          <div class="pill-top-ghost"></div>
+          <div class="pill-body">
+            <div class="pill-icon-wrap"><i class="ti ti-atom"></i></div>
+            <div class="pill-fill"></div>
+            <span class="pill-pct">58%</span>
+            <span class="pill-name">Networking</span>
+          </div>
+        </div>
+        <div class="pill-wrap" data-pct="69">
+          <div class="pill-tooltip">Click to replay</div>
+          <div class="pill-top-ghost"></div>
+          <div class="pill-body">
+            <div class="pill-icon-wrap"><i class="ti ti-server"></i></div>
+            <div class="pill-fill"></div>
+            <span class="pill-pct">69%</span>
+            <span class="pill-name">UI/UX</span>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const BODY_H = 280;
+        document.querySelectorAll('#skills .pill-wrap').forEach((card, i) => {
+          const pct = parseInt(card.dataset.pct);
+          const fill = card.querySelector('.pill-fill');
+          let fired = false;
+          function run() {
+            if (fired) return;
+            fired = true;
+            setTimeout(() => {
+              fill.style.height = (pct / 100 * BODY_H) + 'px';
+              card.classList.add('fired');
+            }, i * 120);
+          }
+          const obs = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) { run(); obs.disconnect(); }
+          }, { threshold: 0.3 });
+          obs.observe(card);
+          card.addEventListener('click', () => {
+            fill.style.transition = 'none';
+            fill.style.height = '0';
+            card.classList.remove('fired');
+            fired = false;
+            setTimeout(() => {
+              fill.style.transition = 'height 1.3s cubic-bezier(.16,1,.3,1)';
+              run();
+            }, 100);
+          });
+        });
+      </script>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══ PORTFOLIO ══ -->
+  <section id="portfolio">
+    <p class="sec-label">// 04</p>
+    <h2 class="sec-title">Portfolio</h2>
+    <div class="pf-outer" id="pfOuter">
+      <div class="pf-track" id="pfTrack">
+        <div class="pf-card">
+          <div class="pf-thumb"
+            style="background-image: url('foto/Smart Building & Smart Parking.jpg'); background-size: cover; background-position: center;">
+            <div class="pf-emoji">🌐</div>
+            <div class="pf-overlay"></div>
+            <div class="pf-meta">
+              <p class="pf-cat">IoT Project</p>
+              <h3 class="pf-card-title">Smart Building &amp; Parking System</h3>
+            </div>
+          </div>
+          <div class="pf-body">
+            <p class="pf-desc">
+              A miniature smart-building project built to simulate parking monitoring and automatic control using ESP32
+              and sensor-based systems.
+            </p>
+            <div class="pf-tags">
+              <span class="ptag">ESP32</span><span class="ptag">Arduino IDE</span><span class="ptag">RFID</span>
+            </div>
+            <button class="pf-btn" onclick="openModal(0)">View Project →</button>
+          </div>
+        </div>
+        <div class="pf-card">
+          <div class="pf-thumb"
+            style="background-image: url('foto/web.png'); background-size: cover; background-position: center;">
+            <div class="pf-emoji">🎨</div>
+            <div class="pf-overlay"></div>
+            <div class="pf-meta">
+              <p class="pf-cat">Web UI/UX</p>
+              <h3 class="pf-card-title">Web Film &amp; Series</h3>
+            </div>
+          </div>
+          <div class="pf-body">
+            <p class="pf-desc">
+              A modern and responsive Indonesian movie and series information platform for 2025–2026.
+            </p>
+            <div class="pf-tags">
+              <span class="ptag">Figma</span><span class="ptag">UI/UX</span><span class="ptag">VS Code</span>
+            </div>
+            <button class="pf-btn" onclick="openModal(1)">View Project →</button>
+          </div>
+        </div>
+        <div class="pf-card">
+          <div class="pf-thumb"
+            style="background-image: url('foto/Screenshot 2026-05-16 195636.png'); background-size: cover; background-position: center;">
+            <div class="pf-emoji">📱</div>
+            <div class="pf-overlay"></div>
+            <div class="pf-meta">
+              <p class="pf-cat">Networking</p>
+              <h3 class="pf-card-title">IT Essentials (Cisco)</h3>
+            </div>
+          </div>
+          <div class="pf-body">
+            <p class="pf-desc">
+              A comprehensive certification and training program covering IT foundations, hardware assembly, and basic
+              computer networking from Cisco Networking Academy.
+            </p>
+            <div class="pf-tags">
+              <span class="ptag">Cisco</span><span class="ptag">Networking</span><span class="ptag">Certification</span>
+            </div>
+            <button class="pf-btn" onclick="openModal(2)">View Project →</button>
+          </div>
+        </div>
+        <div class="pf-card">
+          <div class="pf-thumb"
+            style="background-image: url('foto/sertifikat mcm.jpeg'); background-size: cover; background-position: center;">
+            <div class="pf-emoji">🛒</div>
+            <div class="pf-overlay"></div>
+            <div class="pf-meta">
+              <p class="pf-cat">Math Competition</p>
+              <h3 class="pf-card-title">Math City Map (MCM)</h3>
+            </div>
+          </div>
+          <div class="pf-body">
+            <p class="pf-desc">
+              A location-based mathematics competition that combined analytical thinking with field exploration at Taman
+              Raden Saleh and celebrated National Education Day.
+            </p>
+            <div class="pf-tags">
+              <span class="ptag">Problem Solving</span><span class="ptag">MCM App</span><span class="ptag">Team
+                Strategy</span>
+            </div>
+            <button class="pf-btn" onclick="openModal(3)">View Project →</button>
+          </div>
+        </div>
+        <div class="pf-card">
+          <div class="pf-thumb"
+            style="background-image: url('foto/solve education.jpeg'); background-size: cover; background-position: center;">
+            <div class="pf-emoji">📊</div>
+            <div class="pf-overlay"></div>
+            <div class="pf-meta">
+              <p class="pf-cat">Education Program</p>
+              <h3 class="pf-card-title">Solve Education</h3>
+            </div>
+          </div>
+          <div class="pf-body">
+            <p class="pf-desc">
+              A digital education initiative focused on improving English skills through a game-based learning platform.
+              I received recognition for consistent learning across Semarang.
+            </p>
+            <div class="pf-tags">
+              <span class="ptag">Learning Participation</span><span class="ptag">Solve Education Platform</span><span
+                class="ptag">Skill Development</span>
+            </div>
+            <button class="pf-btn" onclick="openModal(4)">View Project →</button>
+          </div>
+        </div>
+        <div class="pf-card">
+          <div class="pf-thumb"
+            style="background-image: url('foto/minecraft.jpg'); background-size: cover; background-position: center;">
+            <div class="pf-emoji">🏫</div>
+            <div class="pf-overlay"></div>
+            <div class="pf-meta">
+              <p class="pf-cat">Coding Workshop</p>
+              <h3 class="pf-card-title">Hour of Code: Minecraft</h3>
+            </div>
+          </div>
+          <div class="pf-body">
+            <p class="pf-desc">
+              An educational coding experience designed to teach programming logic through game-based learning.
+            </p>
+            <div class="pf-tags">
+              <span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">Logic</span>
+            </div>
+            <button class="pf-btn" onclick="openModal(5)">View Project →</button>
+          </div>
+        </div>
+        <div class="pf-card">
+          <div class="pf-thumb"
+            style="background-image: url('foto/music.jpg'); background-size: cover; background-position: center;">
+            <div class="pf-emoji">🏫</div>
+            <div class="pf-overlay"></div>
+            <div class="pf-meta">
+              <p class="pf-cat">Coding Workshop</p>
+              <h3 class="pf-card-title">Hour of Code: Music</h3>
+            </div>
+          </div>
+          <div class="pf-body">
+            <p class="pf-desc">
+              A creative coding workshop that connected programming concepts with music and design thinking.
+            </p>
+            <div class="pf-tags">
+              <span class="ptag">Creative Coding</span><span class="ptag">CSS</span><span class="ptag">Logic</span>
+            </div>
+            <button class="pf-btn" onclick="openModal(6)">View Project →</button>
+          </div>
+        </div>
+        <div class="pf-card">
+          <div class="pf-thumb"
+            style="background-image: url('foto/Hackathon.JPG'); background-size: cover; background-position: center;">
+            <div class="pf-emoji">🏫</div>
+            <div class="pf-overlay"></div>
+            <div class="pf-meta">
+              <p class="pf-cat">DIGIForward Hackathon</p>
+              <h3 class="pf-card-title">CTI Group x GENed</h3>
+            </div>
+          </div>
+          <div class="pf-body">
+            <p class="pf-desc">
+              I designed an innovative solution using design thinking to address a real-world problem and built an
+              interactive web prototype with AI-assisted workflows.
+            </p>
+            <div class="pf-tags">
+              <span class="ptag">Antigravity</span><span class="ptag">Canva</span><span class="ptag">OpenCode</span>
+            </div>
+            <button class="pf-btn" onclick="openModal(7)">View Project →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pf-controls">
+      <button class="pf-arrow" id="pfPrev" onclick="slidePf(-1)" disabled>←</button>
+      <button class="pf-arrow" id="pfNext" onclick="slidePf(1)">→</button>
+      <div class="pf-dots" id="pfDots"></div>
+      <span class="pf-ctr" id="pfCtr">01 / 08</span>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-bg" onclick="closeModal()"></div>
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-thumb" id="mThumb"></div>
+      <div class="modal-content">
+        <p class="modal-cat" id="mCat"></p>
+        <h2 class="modal-title" id="mTitle"></h2>
+        <p class="modal-desc" id="mDesc"></p>
+        <div class="modal-info" id="mInfo"></div>
+        <div class="modal-tags" id="mTags"></div>
+        <div class="modal-links" id="mLinks"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ CV ══ -->
+  <section id="cv">
+    <p class="sec-label">// 05</p>
+    <h2 class="sec-title">Curriculum Vitae</h2>
+    <div class="cv-wrap reveal">
+      <div class="cv-hd">
+        <div class="cv-photo"> <img src="foto/cv.jpeg" alt="Profile Photo"> </div>
+        <div>
+          <h2 class="cv-nm">OKAN SANDI KURNIAWAN</h2>
+          <p class="cv-role">Creative Web Developer</p>
+          <div class="cv-contacts">
+            <span class="cv-ct"><span class="cv-ct-ic">✉</span>okansandi65@gmail.com</span>
+            <span class="cv-ct"><span class="cv-ct-ic">☏</span>+62 895-1330-1989</span>
+            <span class="cv-ct"><span class="cv-ct-ic">⌂</span>Semarang City, Indonesia</span>
+            <span class="cv-ct"><span class="cv-ct-ic">⊞</span>github.com/OKANSANDIKURNIAWAN</span>
+          </div>
+        </div>
+      </div>
+      <div class="cv-bd">
+        <div class="cv-sb">
+          <div class="cv-sec">
+            <p class="cv-sec-t">Personal Information</p>
+            <div class="cv-ir">
+              <span>Name</span><strong>Okan Sandi Kurniawan</strong>
+            </div>
+            <div class="cv-ir">
+              <span>Nickname</span><strong>Okan</strong>
+            </div>
+            <div class="cv-ir">
+              <span>Date of Birth</span><strong>Semarang, October 3, 2008</strong>
+            </div>
+            <div class="cv-ir"><span>Religion</span><strong>Islam</strong></div>
+            <div class="cv-ir">
+              <span>Status</span><strong>Student</strong>
+            </div>
+          </div>
+          <div class="cv-sec">
+            <p class="cv-sec-t">Skills</p>
+            <div class="cv-sb-bar">
+              <p class="cv-sb-nm">HTML</p>
+              <div class="cv-sb-bg">
+                <div class="cv-sb-fl" data-width="80"></div>
+              </div>
+            </div>
+            <div class="cv-sb-bar">
+              <p class="cv-sb-nm">CSS</p>
+              <div class="cv-sb-bg">
+                <div class="cv-sb-fl" data-width="60"></div>
+              </div>
+            </div>
+            <div class="cv-sb-bar">
+              <p class="cv-sb-nm">IoT</p>
+              <div class="cv-sb-bg">
+                <div class="cv-sb-fl" data-width="88"></div>
+              </div>
+            </div>
+            <div class="cv-sb-bar">
+              <p class="cv-sb-nm">Networking</p>
+              <div class="cv-sb-bg">
+                <div class="cv-sb-fl" data-width="58"></div>
+              </div>
+            </div>
+            <div class="cv-sb-bar">
+              <p class="cv-sb-nm">UI/UX</p>
+              <div class="cv-sb-bg">
+                <div class="cv-sb-fl" data-width="69"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cv-main">
+          <div class="cv-sec">
+            <p class="cv-sec-t">Education</p>
+            <div class="cv-ex">
+              <p class="cv-ex-yr">2024 — Present</p>
+              <h4 class="cv-ex-t">SMK Negeri 7 Semarang</h4>
+              <p class="cv-ex-org">Network and Application Information Systems (SIJA)</p>
+              <p class="cv-ex-d">
+                Studying web programming, networking, cybersecurity, and interface design.
+              </p>
+            </div>
+            <div class="cv-ex">
+              <p class="cv-ex-yr">2021 — 2024</p>
+              <h4 class="cv-ex-t">SMP Negeri 27 Semarang</h4>
+              <p class="cv-ex-org">Graduated with notable academic performance</p>
+            </div>
+            <div class="cv-ex">
+              <p class="cv-ex-yr">2015 — 2021</p>
+              <h4 class="cv-ex-t">SD Negeri Srondol Kulon 02</h4>
+              <p class="cv-ex-org">Graduated with satisfactory results</p>
+            </div>
+          </div>
+          <div class="cv-sec">
+            <p class="cv-sec-t">Achievements</p>
+            <div class="cv-ex">
+              <p class="cv-ex-yr">2024</p>
+              <h4 class="cv-ex-t">Math City Map</h4>
+              <p class="cv-ex-org">Math Competition</p>
+              <p class="cv-ex-d">
+                A location-based mathematics competition that combined analytical thinking with field exploration. I
+                earned third place at Taman Raden Saleh and participated in National Education Day activities.
+              </p>
+            </div>
+            <div class="cv-ex">
+              <p class="cv-ex-yr">2023</p>
+              <h4 class="cv-ex-t">Solve Education</h4>
+              <p class="cv-ex-org">Education Program</p>
+              <p class="cv-ex-d">
+                A digital education program focused on improving English skills through a game-based learning platform.
+                I received recognition for consistent learning participation across Semarang and won first place in the
+                grade 8 category.
+              </p>
+            </div>
+            <div class="cv-ex">
+              <p class="cv-ex-yr">2026</p>
+              <h4 class="cv-ex-t">DIGIForward 2026</h4>
+              <p class="cv-ex-org">Hackathon Competition</p>
+              <p class="cv-ex-d">I designed an innovative solution using design thinking in the online qualification
+                round and built an interactive web prototype with AI-assisted web development workflows. I earned second
+                place.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cv-qt">
+        <blockquote>
+          "The journey to the top is always more meaningful than the peak itself."
+        </blockquote>
+        <cite>— Putri Intan</cite>
+      </div>
+    </div>
+    <a href="https://drive.google.com/file/d/1gt_UoGh-aBwKdyr0ML74OprbgYTNkcTP/view?usp=drivesdk" class="cv-dl"><span>⬇
+        Download CV PDF</span></a>
+  </section>
+
+  <footer>
+    <p class="ft-name">OKAN SANDI KURNIAWAN — Personal Branding</p>
+    <div class="ft-links">
+      <a href="mailto:okansandi65@gmail.com" class="ft-link">✉ Email</a>
+      <a href="https://www.instagram.com/itskozl" class="ft-link" target="_blank">📷 Instagram</a>
+      <a href="https://www.tiktok.com/@wells4a" class="ft-link" target="_blank">🎵 TikTok</a>
+    </div>
+    <p class="ft-copy">© 2026 All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
