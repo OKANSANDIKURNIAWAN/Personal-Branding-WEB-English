@@ -250,9 +250,13 @@ pfData.forEach((_, i) => {
   d.onclick = () => goTo(i);
   pfDots.appendChild(d);
 });
+function getPfStep() {
+  const gap = parseFloat(getComputedStyle(pfTrack).gap) || 0;
+  return pfTrack.children[0].offsetWidth + gap;
+}
 function goTo(i) {
   pfCur = Math.max(0, Math.min(i, total - 1));
-  const w = pfTrack.children[0].offsetWidth + 20;
+  const w = getPfStep();
   pfTrack.style.transform = `translateX(-${pfCur * w}px)`;
   document
     .querySelectorAll(".pfdot")
@@ -262,34 +266,46 @@ function goTo(i) {
   document.getElementById("pfPrev").disabled = pfCur === 0;
   document.getElementById("pfNext").disabled = pfCur >= total - 1;
 }
+window.addEventListener("resize", () => goTo(pfCur));
 function slidePf(d) {
   goTo(pfCur + d);
 }
 // Drag
 let sx = 0,
   st = 0,
-  drag = false;
+  drag = false,
+  dragPointerId = null;
 const pfOuter = document.getElementById("pfOuter");
-pfOuter.addEventListener("mousedown", (e) => {
+pfOuter.addEventListener("pointerdown", (e) => {
+  if (!e.isPrimary || e.button !== 0) return;
   drag = true;
+  dragPointerId = e.pointerId;
   sx = e.clientX;
   const m = new DOMMatrix(getComputedStyle(pfTrack).transform);
   st = m.m41;
+  pfOuter.setPointerCapture(e.pointerId);
 });
-document.addEventListener("mousemove", (e) => {
-  if (!drag) return;
+pfOuter.addEventListener("pointermove", (e) => {
+  if (!drag || e.pointerId !== dragPointerId) return;
   pfTrack.style.transition = "none";
   pfTrack.style.transform = `translateX(${st + (e.clientX - sx)}px)`;
 });
-document.addEventListener("mouseup", (e) => {
-  if (!drag) return;
+function finishPfDrag(e, canceled = false) {
+  if (!drag || e.pointerId !== dragPointerId) return;
   drag = false;
+  dragPointerId = null;
   pfTrack.style.transition = "";
+  if (canceled) {
+    goTo(pfCur);
+    return;
+  }
   const dx = e.clientX - sx;
-  const w = pfTrack.children[0].offsetWidth + 20;
+  const w = getPfStep();
   if (Math.abs(dx) > w * 0.2) goTo(dx < 0 ? pfCur + 1 : pfCur - 1);
   else goTo(pfCur);
-});
+}
+pfOuter.addEventListener("pointerup", finishPfDrag);
+pfOuter.addEventListener("pointercancel", (e) => finishPfDrag(e, true));
 
 /* ─── MODAL ─── */
 function openModal(idx) {

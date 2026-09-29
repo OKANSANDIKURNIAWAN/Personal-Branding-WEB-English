@@ -164,6 +164,14 @@
           .ew-replay { display: flex; justify-content: center; margin-top: 20px; }
           .ew-replay button { background: none; border: 0.5px solid #2a2a2a; border-radius: 20px; color: #666; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; padding: 6px 18px; cursor: pointer; transition: border-color .2s, color .2s; }
           .ew-replay button:hover { border-color: #555; color: #bbb; }
+          @media (max-width: 600px) {
+            .ew-scene { height: auto; display: flex; flex-direction: column; gap: 14px; padding-left: 12px; }
+            #ewCanvas { display: none; }
+            .ew-label, .ew-label.show { position: relative; inset: auto !important; width: auto; padding: 12px 14px; border-left: 1px solid #444; background: rgba(26, 25, 24, .55); opacity: 1; transform: none; }
+            .ew-label-name { font-size: 16px; }
+            .ew-label-desc { font-size: 12px; }
+            .ew-replay { display: none; }
+          }
         </style>
 
         <div class="ew">
@@ -685,6 +693,16 @@
             z-index: 10;
           }
           .pill-wrap:hover .pill-tooltip { opacity: 1; }
+          @media (max-width: 600px) {
+            .pill-outer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 12px; }
+            .pill-wrap { width: 100%; min-width: 0; }
+            .pill-top-ghost { display: none; }
+            .pill-body { width: 100%; height: 230px; margin-top: 0; border-radius: 72px; padding-bottom: 24px; }
+            .pill-icon-wrap { width: 92px; height: 92px; top: -46px; }
+            .pill-icon-wrap i { font-size: 34px; }
+            .pill-pct { font-size: 36px; }
+            .pill-name { font-size: 11px; letter-spacing: 1px; }
+          }
         </style>
         
         <div class="pill-outer">

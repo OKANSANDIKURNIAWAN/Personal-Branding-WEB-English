@@ -993,6 +993,7 @@ section {
   overflow: hidden;
   cursor: grab;
   position: relative;
+  touch-action: pan-y;
 }
 .pf-outer:active {
   cursor: grabbing;
@@ -2140,7 +2141,9 @@ body::after {
 
   /* HERO */
   #home {
+    height: auto;
     min-height: 500px;
+    min-height: max(500px, calc(100svh - var(--nav)));
   }
 
   .hero-left {
