@@ -128,6 +128,65 @@ const cvObs = new IntersectionObserver(
 );
 document.querySelectorAll("#cv").forEach((s) => cvObs.observe(s));
 
+/* ─── CONTACT FORM ─── */
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  const statusEl = document.getElementById("formStatus");
+
+  emailjs.init({
+    publicKey: "oy3QEUKS0LZmCQxMj",
+  });
+
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const defaultText = submitBtn.textContent;
+    const name = contactForm
+      .querySelector('input[name="from_name"]')
+      .value.trim();
+    const email = contactForm
+      .querySelector('input[name="from_email"]')
+      .value.trim();
+    const message = contactForm
+      .querySelector('textarea[name="message"]')
+      .value.trim();
+
+    if (!name || !email || !message) {
+      statusEl.textContent = "Nama, email, dan pesan harus diisi.";
+      statusEl.classList.add("error");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    statusEl.textContent = "";
+    statusEl.className = "form-status";
+
+    emailjs
+      .send("service_sdr8kgb", "template_2gjgajn", {
+        from_name: name,
+        from_email: email,
+        message: message,
+        subject: "Pesan baru dari website portfolio",
+      })
+      .then(() => {
+        statusEl.textContent = "Pesan berhasil dikirim!";
+        statusEl.classList.add("ok");
+        contactForm.reset();
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        statusEl.textContent = "Gagal mengirim pesan. Silakan coba lagi.";
+        statusEl.classList.add("error");
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = defaultText;
+      });
+  });
+}
+
 /* ─── PORTFOLIO SLIDER ─── */
 const pfData = [
   {
@@ -278,6 +337,7 @@ let sx = 0,
 const pfOuter = document.getElementById("pfOuter");
 pfOuter.addEventListener("pointerdown", (e) => {
   if (!e.isPrimary || e.button !== 0) return;
+  if (e.target.closest("button, a")) return;
   drag = true;
   dragPointerId = e.pointerId;
   sx = e.clientX;

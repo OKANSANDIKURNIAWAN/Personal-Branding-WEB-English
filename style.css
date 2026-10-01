@@ -1534,6 +1534,133 @@ section {
   z-index: 1;
 }
 
+/* ─── CONTACT ─── */
+.contact-section {
+  padding-top: 110px;
+  padding-bottom: 90px;
+}
+.contact-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 36px;
+  border: 1px solid var(--g600);
+  background: rgba(17, 17, 17, 0.6);
+  padding: 36px;
+}
+.contact-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 20px;
+}
+.contact-kicker {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--g400);
+  margin-bottom: 16px;
+}
+.contact-copy h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 600;
+  line-height: 0.95;
+  margin-bottom: 14px;
+}
+.contact-copy p {
+  font-family: "Archivo", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g200);
+  margin-bottom: 22px;
+}
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 10px 16px;
+  border: 1px solid var(--g600);
+  background: rgba(255, 255, 255, 0.02);
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--g400);
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--g600);
+  color: var(--white);
+  padding: 14px 16px;
+  font-family: "Archivo", sans-serif;
+  font-size: 14px;
+  resize: vertical;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--white);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06);
+}
+.contact-form button {
+  width: fit-content;
+  background: var(--white);
+  color: var(--black);
+  border: none;
+  padding: 14px 28px;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+.contact-form button:hover {
+  transform: translateY(-1px);
+}
+.contact-form button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+.form-status {
+  min-height: 20px;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--g400);
+}
+.form-status.ok {
+  color: #7ae7b7;
+}
+.form-status.error {
+  color: #ff8a80;
+}
+
 /* ─── FOOTER ─── */
 footer {
   padding: 44px 64px;
