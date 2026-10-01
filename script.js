@@ -190,6 +190,7 @@ if (contactForm) {
 /* ─── PORTFOLIO SLIDER ─── */
 const pfData = [
   {
+    category: "project",
     cat: "IoT Project",
     title: "Smart Building & Parking System",
     emoji: "🌐",
@@ -203,6 +204,7 @@ const pfData = [
     githubLink: null,
   },
   {
+    category: "project",
     cat: "Web UI/UX Design",
     title: "Web Film & Series",
     emoji: "🎨",
@@ -215,6 +217,7 @@ const pfData = [
     githubLink: "https://github.com/OKANSANDIKURNIAWAN/okn-webpp.git",
   },
   {
+    category: "certificate",
     cat: "Cisco Certified Course",
     title: "IT Essential (Cisco)",
     emoji: "📱",
@@ -228,6 +231,7 @@ const pfData = [
     githubLink: null,
   },
   {
+    category: "certificate",
     cat: "Math Competition",
     title: "Math City Map (MCM)",
     emoji: "🛒",
@@ -245,6 +249,7 @@ const pfData = [
     githubLink: null,
   },
   {
+    category: "certificate",
     cat: "Education Program",
     title: "Solve Education",
     emoji: "📊",
@@ -261,6 +266,7 @@ const pfData = [
     githubLink: null,
   },
   {
+    category: "certificate",
     cat: "Coding Workshop",
     title: "Hour of Code Minecraft",
     emoji: "🏫",
@@ -273,6 +279,7 @@ const pfData = [
     githubLink: null,
   },
   {
+    category: "certificate",
     cat: "Coding Workshop",
     title: "Hour of Code Music",
     emoji: "🏫",
@@ -284,8 +291,8 @@ const pfData = [
     liveLink: null,
     githubLink: null,
   },
-
   {
+    category: "project",
     cat: "CTI Group x GENed",
     title: "Hackathon DIGIForward",
     emoji: "🏫",
@@ -298,43 +305,123 @@ const pfData = [
     githubLink: null,
   },
 ];
-const total = pfData.length;
+
+let pfFilter = "all";
 let pfCur = 0;
 const pfTrack = document.getElementById("pfTrack");
 const pfDots = document.getElementById("pfDots");
 const pfCtrEl = document.getElementById("pfCtr");
-pfData.forEach((_, i) => {
-  const d = document.createElement("div");
-  d.className = "pfdot" + (i === 0 ? " active" : "");
-  d.onclick = () => goTo(i);
-  pfDots.appendChild(d);
-});
-function getPfStep() {
-  const gap = parseFloat(getComputedStyle(pfTrack).gap) || 0;
-  return pfTrack.children[0].offsetWidth + gap;
+const pfOuter = document.getElementById("pfOuter");
+
+function getVisiblePfData() {
+  return pfData.filter(
+    (item) => pfFilter === "all" || item.category === pfFilter,
+  );
 }
-function goTo(i) {
-  pfCur = Math.max(0, Math.min(i, total - 1));
+
+function renderPfCards() {
+  const items = getVisiblePfData();
+  pfTrack.innerHTML = items
+    .map(
+      (item, index) => `
+        <div class="pf-card">
+          <div
+            class="pf-thumb"
+            style="background-image: url('${item.image}'); background-size: cover; background-position: center;"
+          >
+            <div class="pf-emoji">${item.emoji}</div>
+            <div class="pf-overlay"></div>
+            <div class="pf-meta">
+              <p class="pf-cat">${item.cat}</p>
+              <h3 class="pf-card-title">${item.title}</h3>
+            </div>
+          </div>
+          <div class="pf-body">
+            <p class="pf-desc">${item.desc}</p>
+            <div class="pf-tags">
+              ${item.tags.map((tag) => `<span class="ptag">${tag}</span>`).join("")}
+            </div>
+            <button class="pf-btn" onclick="openModal(${index})">
+              Project Details →
+            </button>
+          </div>
+        </div>
+      `,
+    )
+    .join("");
+
+  pfDots.innerHTML = items
+    .map(
+      (_, i) =>
+        `<div class="pfdot ${i === 0 ? "active" : ""}" data-index="${i}"></div>`,
+    )
+    .join("");
+
+  document.querySelectorAll(".pfdot").forEach((dot) => {
+    dot.onclick = () => goTo(Number(dot.dataset.index));
+  });
+
+  pfCur = 0;
+  updatePfState();
+}
+
+function updatePfState() {
+  const items = getVisiblePfData();
+  const total = items.length;
+  document.getElementById("pfPrev").disabled = pfCur === 0;
+  document.getElementById("pfNext").disabled =
+    pfCur >= total - 1 || total === 0;
+  pfCtrEl.textContent = total
+    ? `${String(pfCur + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`
+    : "01 / 00";
+
+  document.querySelectorAll(".pfdot").forEach((dot, index) => {
+    dot.classList.toggle("active", index === pfCur);
+  });
+
+  if (total === 0) {
+    pfTrack.style.transform = "translateX(0)";
+    return;
+  }
+
   const w = getPfStep();
   pfTrack.style.transform = `translateX(-${pfCur * w}px)`;
-  document
-    .querySelectorAll(".pfdot")
-    .forEach((d, j) => d.classList.toggle("active", j === pfCur));
-  pfCtrEl.textContent =
-    String(pfCur + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
-  document.getElementById("pfPrev").disabled = pfCur === 0;
-  document.getElementById("pfNext").disabled = pfCur >= total - 1;
 }
-window.addEventListener("resize", () => goTo(pfCur));
+
+function getPfStep() {
+  const gap = parseFloat(getComputedStyle(pfTrack).gap) || 0;
+  if (!pfTrack.children[0]) return 0;
+  return pfTrack.children[0].offsetWidth + gap;
+}
+
+function goTo(i) {
+  const items = getVisiblePfData();
+  if (!items.length) return;
+  pfCur = Math.max(0, Math.min(i, items.length - 1));
+  updatePfState();
+}
+
 function slidePf(d) {
   goTo(pfCur + d);
 }
-// Drag
+
+window.addEventListener("resize", () => updatePfState());
+
+document.querySelectorAll(".pf-filter-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    pfFilter = button.dataset.filter;
+    document.querySelectorAll(".pf-filter-btn").forEach((btn) => {
+      btn.classList.toggle("active", btn === button);
+    });
+    renderPfCards();
+  });
+});
+
 let sx = 0,
   st = 0,
   drag = false,
   dragPointerId = null;
-const pfOuter = document.getElementById("pfOuter");
+
 pfOuter.addEventListener("pointerdown", (e) => {
   if (!e.isPrimary || e.button !== 0) return;
   if (e.target.closest("button, a")) return;
@@ -345,31 +432,39 @@ pfOuter.addEventListener("pointerdown", (e) => {
   st = m.m41;
   pfOuter.setPointerCapture(e.pointerId);
 });
+
 pfOuter.addEventListener("pointermove", (e) => {
   if (!drag || e.pointerId !== dragPointerId) return;
   pfTrack.style.transition = "none";
   pfTrack.style.transform = `translateX(${st + (e.clientX - sx)}px)`;
 });
+
 function finishPfDrag(e, canceled = false) {
   if (!drag || e.pointerId !== dragPointerId) return;
   drag = false;
   dragPointerId = null;
   pfTrack.style.transition = "";
   if (canceled) {
-    goTo(pfCur);
+    updatePfState();
     return;
   }
   const dx = e.clientX - sx;
   const w = getPfStep();
   if (Math.abs(dx) > w * 0.2) goTo(dx < 0 ? pfCur + 1 : pfCur - 1);
-  else goTo(pfCur);
+  else updatePfState();
 }
+
 pfOuter.addEventListener("pointerup", finishPfDrag);
 pfOuter.addEventListener("pointercancel", (e) => finishPfDrag(e, true));
 
+renderPfCards();
+
 /* ─── MODAL ─── */
 function openModal(idx) {
-  const d = pfData[idx];
+  const activeItems = getVisiblePfData();
+  const d = activeItems[idx];
+  if (!d) return;
+
   document.getElementById("mThumb").innerHTML =
     `<img src="${d.image}" alt="${d.title}" style="width: 100%; height: 100%; object-fit: cover;">`;
   document.getElementById("mCat").textContent = d.cat;
